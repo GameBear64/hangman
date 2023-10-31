@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+
+@layer components {
+  .btn-blue {
+    @apply mx-1 rounded bg-cyan-500 px-2 py-1 text-white hover:bg-cyan-700;
+  }
+  .btn-green {
+    @apply mx-1 rounded bg-emerald-500 px-2 py-1 text-white hover:bg-emerald-700;
+  }
+  .btn-red {
+    @apply mx-1 rounded bg-rose-500 px-2 py-1 text-white hover:bg-rose-700;
+  }
+
+  .text-input {
+    @apply appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:shadow;
+  }
+}
