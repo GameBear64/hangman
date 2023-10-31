@@ -11,15 +11,19 @@ let userID = localStorage.getItem('hangman-user')
 
 if (store.username === '') router.push('/')
 
-
 const customWordModal = ref(false)
 const customWord = ref("")
+const wordErrors= ref(false)
 
 const onlineLobbyModal = ref(false)
 const onlineCode = ref("")
 
 watch(gameState, (newState) => {
   router.push(`/${newState.code}`)
+})
+
+watch(customWord, (word) => {
+  wordErrors.value = /[^a-zA-Z ]/g.test(word)
 })
 
 </script>
@@ -75,9 +79,15 @@ watch(gameState, (newState) => {
         class="text-input"
       >
     </div>
+    <p
+      v-if="wordErrors"
+      class="mt-2 text-center text-rose-500"
+    >
+      Use only letters and spaces
+    </p>
     <template #buttons>
       <button
-        v-if="customWord"
+        v-if="customWord && !wordErrors"
         class="btn-blue"
         @click="() => {
           customWordModal = false
