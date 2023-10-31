@@ -21,7 +21,6 @@ const words = [
   "moonlight",
   "paradise",
   "tiger",
-  "elephant",
   "ocean",
   "beach",
   "mountain",
